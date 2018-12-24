@@ -20,7 +20,7 @@ function draw() {
 		if (bird.hitsBottom()) {
 			console.log("hit bottom");
 		}
-
+ 
 		if (pipes[i].offscreen()) {
 			pipes.splice(i, 1);
 		}
