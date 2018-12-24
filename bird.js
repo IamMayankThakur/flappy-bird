@@ -31,8 +31,8 @@ function Bird() {
 		}
 
 	}
-	this.hitsEdge = function () {
-		if (this.y <= 0 || this.y >= height) {
+	this.hitsBottom = function () {
+		if (this.y >= height) {
 			return true;
 		} else
 			return false;

@@ -2,7 +2,7 @@ var bird;
 var pipes = [];
 
 function setup() {
-	createCanvas(640, 480);
+	createCanvas(windowWidth, windowHeight);
 	bird = new Bird();
 	pipes.push(new Pipe());
 }
@@ -17,8 +17,8 @@ function draw() {
 		if (pipes[i].hits(bird)) {
 			console.log("HIT");
 		}
-		if (bird.hitsEdge()) {
-			console.log("hit edge");
+		if (bird.hitsBottom()) {
+			console.log("hit bottom");
 		}
 
 		if (pipes[i].offscreen()) {
@@ -32,6 +32,9 @@ function draw() {
 	if (frameCount % 75 == 0) {
 		pipes.push(new Pipe());
 	}
+	if (mouseIsPressed) {
+		bird.up();
+	}
 }
 
 function keyPressed() {
@@ -39,4 +42,8 @@ function keyPressed() {
 		bird.up();
 		//console.log("SPACE");
 	}
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
 }
